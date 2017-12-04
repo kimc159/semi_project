@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+<head>
+    <!--{#head}-->
+</head>
+
+<body>
+    <!--{#topbar}-->
+    <div class="container">
+        <h1 class="page-header">
+            {bbs_config.name}
+        </h1>
+
+        <!-- 글 목록 시작 -->
+        <div class="table-responsive">
+            <table class='table table-hover'>
+                <thead>
+                    <tr>
+                        <th class='text-center' style='width: 100px'>번호</th>
+                        <th class='text-center'>제목</th>
+                        <th class='text-center' style='width: 120px'>작성자</th>
+                        <th class='text-center' style='width: 100px'>조회수</th>
+                        <th class='text-center' style='width: 120px'>작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--{? document_list != FALSE }-->
+                    <!--{@ document_list }-->
+                    <tr>
+                        <td class='text-center'>{.id}</td>
+                        <td><a href='read.php?bbs_type={bbs_config.type}&document_id={.id}'>{=htmlspecialchars(.subject)}</a></td>
+                        <td class='text-center'>{=htmlspecialchars(.writer_name)}</td>
+                        <td class='text-center'>{.hit}</td>
+                        <td class='text-center'>{=substr(.reg_date, 0, 10)}</td>
+                    </tr>
+                    <!--{/}-->
+                    <!--{:}-->
+                    <!-- 게시글이 없는 경우 -->
+                    <tr>
+                        <td colspan='5' class='text-center' style='line-height: 100px;'>
+                            조회된 글이 없습니다.</td>
+                    </tr>
+                    <!--{/}-->
+                </tbody>
+            </table>
+        </div>
+        <!--// 글 목록 끝 -->
+
+        <!-- 검색폼 + 글 쓰기 버튼 -->
+        <div class='clearfix'>
+            <div class='pull-left'>
+                <form method='get' action='list.php' style='width: 200px'>
+                    <div class="input-group">
+                        <input type="hidden" name="bbs_type" value="{bbs_config.type}" />
+                        <input type="text" name='keyword' class="form-control" 
+                         placeholder="제목,내용 검색" value="{keyword}" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">
+                                <i class='glyphicon glyphicon-search'></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class='pull-right'>
+                <a href="write.php?bbs_type={bbs_config.type}" class="btn btn-primary"> <i class="glyphicon glyphicon-pencil"></i> 글쓰기 </a>
+            </div>
+        </div>
+
+        <!-- 페이지 구현 -->
+        <nav class="text-center">
+            <ul class="pagination">
+                <!-- 이전 페이지 그룹 이동 버튼 -->
+                <!--{? page_info.prev_group_last_page > 0 }-->
+                <li>
+                    <a href="list.php?bbs_type={bbs_config.type}&page={page_info.prev_group_last_page}&keyword={=urlencode(keyword)}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <!--{:}-->
+                <li class="disabled">
+                    <span>
+                        <span aria-hidden="true">&laquo;</span>
+                    </span>
+                </li>
+                <!--{/}-->
+
+                <!-- 페이지 번호 -->
+                <!--{@ range(page_info.group_start, page_info.group_end) }-->
+                <!--{? .value_ == page_info.now_page }-->
+                <li class="active"><a href="#">{.value_}</a></li>
+                <!--{:}-->
+                <li><a href="list.php?bbs_type={bbs_config.type}&page={.value_}&keyword={=urlencode(keyword)}">{.value_}</a></li>
+                <!--{/}-->
+                <!--{/}-->
+
+                <!-- 다음 페이지 그룹 이동 버튼 -->
+                <!--{? page_info.next_group_first_page > 0 }-->
+                <li>
+                    <a href="list.php?bbs_type={bbs_config.type}&page={page_info.next_group_first_page}&keyword={=urlencode(keyword)}">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <!--{:}-->
+                <li class="disabled">
+                    <span>
+                        <span aria-hidden="true">&raquo;</span>
+                    </span>
+                </li>
+                <!--{/}-->
+            </ul>
+        </nav>
+        <!--// 페이지 구현 -->
+
+    </div>
+    <!--{#footer}-->
+
+</body>
+
+</html>

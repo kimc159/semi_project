@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--{#head}-->
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+	<!--{#topbar}-->
+	<form action="{home_url}/login_ok.php" method="post">
+		<div class="login">
+			<h3>MEMBER LOGIN</h3>
+			<fieldset class="login_wrap">
+				<legend>회원 로그인</legend>
+				<div class="id">
+					<span>ID</span>
+					<input type="text" name="member_id" placeholder="아이디">
+				</div>
+				<div class="pw">
+					<span>pw</span>
+					<input type="password" name="member_pw" placeholder="비밀번호">
+				</div>
+				<button type="submit" class="login_btn">LOGIN</button>
+				<ul class="find_wrap">
+					<li class="find_id"><a href="#">아이디찾기</a></li>
+					<li class="find_pw"><a href="{home_url}/password_reset.php">비밀번호찾기</a></li>
+				</ul>
+				<p class="link">
+					<a class="join_btn" href="{home_url}/register.php">JOIN</a>
+				</p>
+			</fieldset>
+		</div>
+	</form>
+	<!--{#footer}-->
+</body>
+</html>
