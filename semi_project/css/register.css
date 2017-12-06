@@ -1,5 +1,4 @@
-/*회원가입 폼*/
-.frm2{
+.frm{
 	width: 1100px;
 	margin: 0 auto;
 	margin-top: 50px;
@@ -7,18 +6,11 @@
 tr > td{
 	padding: 10px;
 }
-.frm2 > table > caption{
-	font-size: 20px;
-	margin: 10px;
-} 
 .clearfix:after{
 	clear: both;
 	content: '';
 	display:block;
 	float: none;
-}
-.form-control{
-	padding: 5px;
 }
 .pull-left{
 	float: left;
@@ -28,27 +20,25 @@ tr > td{
 }
 .tel1,.tel2,.tel3,.tel4,.tel5,.tel6{
 	width: 50px;
-	padding: 5px;
 }
 .ymd_s{
 	width: 50px;
 	margin-right: 12px;
-	padding: 5px;
 }
 .ymd_wrap{
 	position: relative;
 }
 .la_year{
 	position: absolute;
-	left: 75px;
+	left: 65px;
 }
 .la_mon{
 	position: absolute;
-	left: 153px;
+	left: 137px;
 }
 .la_day{
 	position: absolute;
-	left: 235px;
+	left: 210px;
 }
 .id_check{
 	margin-bottom: 10px;
@@ -71,34 +61,3 @@ tr > td{
 .textarea_wrap{
 	width: 500px;
 }
-.radio{
-	width: 200px;
-	margin-top: 5px;
-}
-.op_radio{
-	width: 200px;
-}
-.ra_label{
-	position: relative;
-	width: 100px;
-	margin-right:30px;
-}
-.select1{
-	position: absolute;
-	left: 20px;
-	top: -3px;
-	width: 30px;
-}
-.select2{
-	position: absolute;
-	left: 20px;
-	top: -3px;
-	width: 30px;
-}
-.btn_register{
-	padding: 10px;
-	width: 70px;
-	height: 40px;
-	line-height: 15px;
-}
-/*회원가입 폼 끝*/

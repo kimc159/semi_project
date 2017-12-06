@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+  <title>Login Demo - Kakao JavaScript SDK</title>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+</head>
+<body>
+  <div id="kakao_btn_changed">
+<a id="custom-login-btn" href="javascript:loginWithKakao()">
+<img src="../img/kakao_login.png" width="300"/></a>
+</div>
+
+<script type='text/javascript'>
+  // 버튼 이미지 전환 
+$(document).ready(function(){
+ 
+    $("#custom-login-btn, #custom-logout-btn").hover(
+    function(){
+        $("#custom-login-btn img").css('opacity','0.6');
+        $("#custom-logout-btn img").css('opacity','0.6');
+        
+    }, 
+    function(){
+        $("#custom-login-btn img").css('opacity','1');
+        $("#custom-logout-btn img").css('opacity','1');
+        
+    });
+ 
+});
+ 
+ 
+// 로그인 및 로그아웃 버튼 생성 처리
+var cookiedata = document.cookie;
+ 
+if(cookiedata.indexOf('kakao_login=done') < 0){
+    createLoginKakao();
+}else{
+    createLogoutKakao();
+}
+ 
+/* 로그인 관련 쿠키 생성 및 삭제 */
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+ 
+/* 쿠키 삭제 다른방법
+function deleteCookie( name ){
+    
+    var date = new Date();
+     date.setHours(date.getHours() - 1);
+     var expried_set = "expries="+date.toGMTString();
+     document.cookie = name + "="  + "; path=/;" + expried_set + ";"
+}
+*/
+ 
+// 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+ 
+ 
+// 카카오 script key 입력
+Kakao.init('***************************************************');
+ 
+ // 로그인 처리
+function loginWithKakao(){
+    
+    Kakao.Auth.cleanup();//리소스 해제
+    Kakao.Auth.login({
+        persistAccessToken: true,
+        persistRefreshToken: true,
+        success: function(authObj) {
+            setCookie("kakao_login","done",1); // 쿠키생성 (로그인)
+
+            Kakao.API.request({// 사용자 정보 불러오기
+                  url: '/v1/user/me',
+                  success: function(res) {
+                    alert(JSON.stringify(res));
+                    console.log(res.id);
+                    console.log(res.properties.nickname);// 유저 이름
+                  },
+                  fail: function(error) {
+                    alert(JSON.stringify(error));
+                  }
+            });
+            createLogoutKakao();
+            //window.location.href="kakao.html";
+        },
+            fail: function(err) {
+             alert(JSON.stringify(err));
+        }
+                 
+    });
+}
+
+ 
+// 로그아웃 처리
+function logoutWithKakao(){
+    Kakao.Auth.logout(function(response){
+        console.log(response + "logout");
+    })
+    //alert('카카오 로그아웃 완료!');
+    setCookie("kakao_login","",-1);  // 쿠키삭제 (로그아웃)
+    //deleteCookie( "kakao_login" );
+    createLoginKakao();
+    
+}
+ 
+ 
+ 
+// 로그인 버튼생성
+function createLoginKakao(){
+ var login_btn = "<a id='custom-login-btn' href='javascript:loginWithKakao()'>"+
+                "<img src='../img/kakao_login.png' width='250'/>"+
+                "</a>";
+ document.getElementById('kakao_btn_changed').innerHTML  = login_btn;
+}
+ 
+ 
+// 로그아웃 버튼생성
+function createLogoutKakao(){
+ var logout_btn = "<a id='custom-logout-btn' href='javascript:logoutWithKakao()'>"+
+                "<img src='../img/kakao_logout.png' width='200'/>"+
+                "</a>";
+ document.getElementById('kakao_btn_changed').innerHTML  = logout_btn;
+ 
+}
+ 
+</script>
+
+</body>
+</html>

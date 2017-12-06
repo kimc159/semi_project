@@ -12,7 +12,7 @@ function db_open()
 
     /*	데이터베이스에 접속하기 위한 정보 정의하기 */
     $db_hostname = 'localhost';
-    $db_database = 'site';
+    $db_database = 'mysite';
     $db_username = 'root';
     $db_password = '';
     $db_portnumber = 3306;

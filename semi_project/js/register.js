@@ -53,8 +53,7 @@ $("#email").keyup(function(){
     }
 });
 // 전송 버튼 마지막에 submit줘야됨
-$(".btn_register").click(function(){
-    console.log("btn in");
+$(".register").click(function(){
     var id = $("#id").val();
     var pw = $("#pw").val();
     var pw_conf = $("#pw_conf").val();
@@ -64,17 +63,13 @@ $(".btn_register").click(function(){
     var tel4 = $(".tel4").val();
     var tel5 = $(".tel5").val();
     var tel6 = $(".tel6").val();
-    
-    if(tel1 == "" || tel2 == "" || tel3 ==""){
-        alert("전화번호를 입력해 주세요.");
-        return false;
-    }else if( tel4 == "" || tel5 == "" || tel6 == "" ){
-        alert("휴대폰번호를 입력해 주세요.");
-        return false;
-    }else if($(".email_ck").is(":checked") != true){
-        alert("이메일 수신동의에 체크해 주세요.");
-        return false;
-    }
+    // if(tel1 == "" || tel2 == "" || tel3 ==""){
+    //     alert("전화번호를 입력해 주세요.");
+    // }else if( tel4 == "" || tel5 == "" || tel6 == "" ){
+    //     alert("휴대폰번호를 입력해 주세요.");
+    // }else if($(".email_ck").is(":checked") != true){
+    //     alert("이메일 수신동의에 체크해 주세요.");
+    // }
     if(tel2 != "" && tel3 != "") {
         var rgEx = /(03[123])[-](\d{4}|\d{3})[-]\d{4}$/g;
        var strValue = tel1+"-"+tel2+"-"+tel3;
@@ -101,9 +96,8 @@ $(".btn_register").click(function(){
         return false; 
         }
     }
-    $(".frm2").submit();
+    $(".frm").submit();
 });
-
 function hanCheck(str){
     var check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;   //한글 체크
     if(check.test(str)){
