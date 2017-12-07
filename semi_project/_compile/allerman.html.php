@@ -1,4 +1,4 @@
-<?php /* Template_ 2.2.8 2017/12/04 16:09:26 C:\phpuser\semi_project\_template\allerman.html 000009256 */ ?>
+<?php /* Template_ 2.2.8 2017/12/07 17:23:29 C:\phpuser\semi_project\_template\allerman.html 000009526 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="plugins/superslides/stylesheets/superslides.css">
     <link rel="stylesheet" href="plugins/youcover/youCover.css">
     <link rel="stylesheet" href="plugins/aos/aos.css">
+   
+<style type="text/css">
+    .slides-pagination{
+        bottom: 15px !important;
+    }
+</style>
 </head>
 <body>
 <?php $this->print_("topbar",$TPL_SCP,1);?>
@@ -186,12 +192,18 @@
 </div>
 <?php $this->print_("footer",$TPL_SCP,1);?>
 
-    <script src="../plugins/superslides/jquery.easing.1.3.js"></script>
-    <script src="../plugins/superslides/jquery.superslides.min.js"></script>
+    <script src="plugins/superslides/jquery.easing.1.3.js"></script>
+    <script src="plugins/superslides/jquery.superslides.min.js"></script>
      <!-- 플러그인 JS 참조 (유튜브 동영상)-->
-    <script src='../plugins/youcover/youCover.js'></script>
-    <script src='../plugins/aos/aos.js'></script>
+    <script src='plugins/youcover/youCover.js'></script>
+    <script src='plugins/aos/aos.js'></script>
     <script src='js/script.js'></script>
-   
+<?php if($TPL_VAR["is_popup"]=='N'){?>
+<script>
+    $(function(){
+        var popup = window.open("popup.php", "popup", "width=450,height=450");
+    }); 
+</script>
+<?php }?>
 </body>
 </html>

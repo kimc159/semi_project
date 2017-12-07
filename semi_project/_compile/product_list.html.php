@@ -1,4 +1,4 @@
-<?php /* Template_ 2.2.8 2017/12/04 17:51:58 C:\phpuser\semi_project\_template\product_list.html 000011638 */ ?>
+<?php /* Template_ 2.2.8 2017/12/07 10:19:36 C:\phpuser\semi_project\_template\product_list.html 000011638 */ ?>
 <!DOCTYPE html>
 <html>
 <head>

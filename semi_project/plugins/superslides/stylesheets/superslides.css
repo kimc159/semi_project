@@ -40,7 +40,7 @@
 .slides-pagination {
   position: absolute;
   z-index: 3;
-  bottom: 25px;
+  bottom: 15px;
   text-align: center;
   width: 100%;
 }

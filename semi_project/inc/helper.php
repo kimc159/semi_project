@@ -1,3 +1,4 @@
+
 <?php
 /**
  * HTTP GET 파라미터 값을 수신한다.
@@ -124,8 +125,8 @@ function send_mail($sender, $sender_name, $receiver, $receiver_name, $subject, $
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = '자신의 Gmail 주소';
-    $mail->Password = '자신의 Gmail 비밀번호';
+    $mail->Username = '';
+    $mail->Password = '';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->isHTML(true);

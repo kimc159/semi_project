@@ -1,4 +1,4 @@
-<?php /* Template_ 2.2.8 2017/12/04 16:09:20 C:\phpuser\semi_project\_template\register.html 000007982 */ ?>
+<?php /* Template_ 2.2.8 2017/12/07 17:07:06 C:\phpuser\semi_project\_template\register.html 000007187 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <?php $this->print_("topbar",$TPL_SCP,1);?>
 
 <form class="frm2" action="<?php echo $TPL_VAR["home_url"]?>/register_ok.php"  method="post">
-	<table width="100%;" border="1">
+	<table width="100%" cellpadding="0" cellspacing="0">
 		<caption>Join us</caption>
 		<tbody>
 			<tr>
@@ -36,7 +36,7 @@
 				<td class="pc_wrap"><input type="text" name="postcode" id="postcode"
                    class="form-control"/>
             <!-- 클릭 시, Javascript 함수 호출 : openDaumPostcode() -->
-            	<input type='button' value='우편번호 찾기' class='btn btn-warning' onclick='daumPostCode()'/></td>
+            	<input type='button' value='우편번호 찾기' class='btn btn-warning post' onclick='daumPostCode()'/></td>
 			</tr>
 			<tr>
 				<th>주소<img src="img/ico.png" alt="필수"></th>
@@ -104,26 +104,21 @@
 			<tr>
 				<th>이용약관동의<img src="img/ico.png" alt="필수"></th>
 				<td class="textarea_wrap">
-				<textarea class="form-control" rows="5" >제1조(목적)
-이 약관은 한국도자기(주)가 운영하는 쇼핑몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
-※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니 </textarea>
-				<textarea class="form-control" rows="5">제1조(목적)
-이 약관은 한국도자기(주)가 운영하는 쇼핑몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.
-※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.」
-제2조(정의) </textarea>
+				<textarea class="form-control" rows="5" >개인 포트폴리오 용으로 제작되었습니다.</textarea>
+				<textarea class="form-control" rows="5">개인 포트폴리오 용으로 제작되었습니다.</textarea>
 				</td>
 			</tr>
 			<tr>
-				<td></td>
-				<td>
+				<th></th>
+				<th>
 					<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">모두동의
-				</td>
+				</th>
 			</tr>
 			<tr>
-				<td></td>
-				<td>
+				<th></th>
+				<th>
 					<button type="button" class="btn btn-default btn_register">가입</button>
-				</td>
+				</th>
 			</tr>
 		</tbody>
 	</table>

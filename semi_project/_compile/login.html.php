@@ -1,14 +1,54 @@
-<?php /* Template_ 2.2.8 2017/12/04 16:58:29 C:\phpuser\semi_project\_template\login.html 000001265 */ ?>
+<?php /* Template_ 2.2.8 2017/12/07 17:06:56 C:\phpuser\semi_project\_template\login.html 000002873 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
 <?php $this->print_("head",$TPL_SCP,1);?>
 
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+<style type="text/css">
+	.find_id> a, .find_pw>a{
+		color: #111;
+	}
+</style>
 </head>
 <body>
 <?php $this->print_("topbar",$TPL_SCP,1);?>
 
+	<div class="p_container">
+        <div class="p_img">
+            <img src="img/sv01.jpg">
+        </div>
+        <div class="page_path">
+            <span class="page_home">
+                <img src="img/btn_home.jpg">
+            </span>
+            <ul class="page_nav">
+                <li class="page_nav_li"><a href="#">STORE
+                    <ul class="lnb">
+                        <li class="lnb_list"><a href="">PRODUCT</a></li>
+                        <li class="lnb_list"><a href="">COMMUNITY</a></li>
+                        <li class="lnb_list"><a href="">STORE</a></li>
+                        <li class="lnb_list"><a href="">SERVICE CENTER</a></li>
+                        <li class="lnb_list"><a href="">COMPANY</a></li>
+                    </ul>
+                </a></li>
+                <li class="page_nav_li"><a href="#">매장찾기
+                    <ul class="lnb">
+                        <li class="lnb_list"><a href="">매장찾기</a></li>
+                        <li class="lnb_list"><a href="">우수매장</a></li>
+                        <li class="lnb_list"><a href="">대리점 개설안내</a></li>
+                        <li class="lnb_list"><a href="">대리점 개설문의</a></li>
+                    </ul>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="login_text">
+    	<p>로그인</p>
+    	<hr>
+    	<p>로그인</p>
+    	<p>알레르망, 홈페이지에 오신 것을 환영합니다.</p>
+    </div>
 	<form action="<?php echo $TPL_VAR["home_url"]?>/login_ok.php" method="post">
 		<div class="login">
 			<h3>MEMBER LOGIN</h3>

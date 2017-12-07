@@ -66,9 +66,7 @@ $ses_member_id = get_session('member_id', 0);
 // 세션에 회원의 일련번호가 존재한다면?
 if ($ses_member_id > 0) {
     // 현재 회원의 모든 정보를 조회해서 준비한 배열에 저장한다.
-    $sql = 'SELECT id, user_id, user_pw, user_name, email,
-                    tel, postcode, addr1, addr2, reg_date, edit_date
-                FROM member WHERE id=%d';
+    $sql = 'SELECT * FROM user WHERE id=%d';
     $input = array($ses_member_id);
     $result = db_query($sql, $input);
 
@@ -87,4 +85,8 @@ if ($ses_member_id > 0) {
 // 회원정보를 템플릿에 전달한다.
 // 로그인된 경우 --> 연관배열 형태,  로그인되지 않은 경우 --> FALSE
 $tpl->assign('member_info', $member_info);
+$is_popup = get_cookie('is_popup', 'N');
+
+$tpl->assign('is_popup', $is_popup);
+
 ?>

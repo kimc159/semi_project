@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>popup</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+<style>
+html,body{
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+}
+.wrap>h1{
+	font-size: 30px;
+	color: #6f757a;
+	margin: 30px auto;
+	text-align: center;
+}
+.wrap>p{
+	font-size: 15px;
+	color: #6f757a;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.pop_frm{
+	margin-top: 150px;
+	margin-left: 10px;
+}
+.pop_frm > button{
+	padding: 7px;
+}
+.checkbox{
+	padding: 10px;
+	position: relative;
+}
+.checkbox > label{
+	position: absolute;
+	left: 35px;
+	top: 7px;
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+	<h1><img src="img/logo.png"></h1>
+	<p>이 홈페이지는 개인 포트폴리오 용으로 제작된 페이지입니다.</p>
+
+	<form name="myform" class="pop_frm" method="post" action="is_popup_close.php">
+		<div class="checkbox">
+			<input type="checkbox" name="is_popup" value="Y">
+			
+			<label for="is_popup">
+				1분간 창을 열지 않음
+			</label>
+		</div>
+		<button type="submit">닫기</button>
+	</form>
+</div>
+</body>
+</html>

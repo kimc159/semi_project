@@ -1,4 +1,5 @@
 $(function() {
+    
         AOS.init();
         /** `#slides`요소에 대해 플러그인 적용 */
         $('#slides').superslides({
@@ -8,9 +9,6 @@ $(function() {
             animation: 'slide'   // 애니메이션 옵션(fade/slide) (미적용시 슬라이드)
         });
 
-        $('.gnb_li').hover(function(){
-            $(this).find(".sub_ul").stop().slideToggle(300);
-        });
         $('.best-list').hover(function(){
             $(this).find('.btn_moreview').css('display','block');
             $(this).find('.background_black').css('display','block');

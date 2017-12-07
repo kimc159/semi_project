@@ -1,7 +1,4 @@
 $(function() {
-    $('.gnb_li').hover(function(){
-        $(this).find(".sub_ul").stop().slideToggle(300);
-    });
     $('.font_gnb').hover(function(){
         $(this).find('a').css('color','#4974bc');
     },function(){
