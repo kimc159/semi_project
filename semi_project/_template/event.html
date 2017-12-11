@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--{#head}-->
+<link rel="stylesheet" type="text/css" href="css/event.css">
+</head>
+<body>
+<!--{#topbar}-->
+<div class="event_wrap">
+	<h1>{bbs_config.name}</h1>
+
+	<!-- 글 목록 시작 -->
+	<div class="thumbnail_wrap clearfix">
+		<!--{? count(document_list) > 0}-->
+			<!--{@document_list}-->
+			<div class="thumbnail pull-left">
+				<a href="read.php?bbs_type={bbs_config.type}&document_id={.id}"><img src="{.thumbnail}" class="img-responsive"></a>
+				<div class="item">
+					<h4>{=htmlspecialchars(.subject)}</h4>
+					<div>{=htmlspecialchars(.writer_name)}</div>
+					<div class="clearfix">
+						<div class="pull-left">{=substr(.reg_date, 0, 10)}</div>
+						<div class="pull-right">{.hit} view</div>
+					</div>
+				</div>
+			</div>
+			<!--{/}-->
+		<!--{:}-->
+		<div>
+			<p>조회된 글이 없습니다.</p>
+		</div>
+		<!--{/}-->
+	</div>
+
+	<!-- 페이지 구현 -->
+	<div class="search_wrap">
+        <form method="get" action="list.php" style="width: 1070px;">
+            <div class="input_wrap" style="margin-top: 10px;">
+                <input type="hidden" name="bbs_type" value="{bbs_config.type}">
+                <input type="text" name="keyword" value="{keyword}" placeholder="제목, 내용 검색" style="padding: 7px;">
+                <span class="search_btn">
+                    <button type="submit" style="padding: 2.5px;"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+        <nav class="page_container">
+            <ul class="pagination clearfix">
+                <!-- 이전 페이지 그룹 이동 버튼 -->
+                <!--{? page_info.prev_group_last_page > 0 }-->
+                <li class="pull-left">
+                    <a href="list.php?bbs_type={bbs_config.type}&page={page_info.prev_group_last_page}&keyword={=urlencode(keyword)}">
+                       이전
+                    </a>
+                </li>
+                <!--{:}-->
+                <li class="disabled pull-left">
+                        <a>이전</a>
+                </li>
+                <!--{/}-->
+
+                <!-- 페이지 번호 -->
+                <!--{@ range(page_info.group_start, page_info.group_end) }-->
+                <!--{? .value_ == page_info.now_page }-->
+                <li class="active pull-left"><a href="#">{.value_}</a></li>
+                <!--{:}-->
+                <li class="pull-left"><a href="list.php?bbs_type={bbs_config.type}&page={.value_}&keyword={=urlencode(keyword)}">{.value_}</a></li>
+                <!--{/}-->
+                <!--{/}-->
+
+                <!-- 다음 페이지 그룹 이동 버튼 -->
+                <!--{? page_info.next_group_first_page > 0 }-->
+                <li class="pull-left">
+                    <a href="list.php?bbs_type={bbs_config.type}&page={page_info.next_group_first_page}&keyword={=urlencode(keyword)}">
+                        다음
+                    </a>
+                </li>
+                <!--{:}-->
+                <li class="disabled pull-left">
+                    다음
+                </li>
+                <!--{/}-->
+            </ul>
+        </nav>
+    	<div class="write">
+    		<a href="write.php?bbs_type={bbs_config.type}" class="write_now" style>
+    		글쓰기
+    		</a>
+    	</div>
+</div>
+<!--{#footer}-->
+
+</body>
+</html>
