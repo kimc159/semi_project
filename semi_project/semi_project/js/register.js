@@ -64,6 +64,7 @@ $(".btn_register").click(function(){
     var tel4 = $(".tel4").val();
     var tel5 = $(".tel5").val();
     var tel6 = $(".tel6").val();
+    
     if(tel1 == "" || tel2 == "" || tel3 ==""){
         alert("전화번호를 입력해 주세요.");
         return false;

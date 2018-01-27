@@ -1,5 +1,13 @@
 /* 헤더 */
-
+.pull-left{
+	float: left;
+}
+.clearfix::after{
+	display: block;
+	content: '';
+	clear: both;
+	float: none;
+}
 #header{
 	width: 1100px;
 	height: 150px;
@@ -23,8 +31,7 @@
 .frm{
 	width: 270px;
 	height: 26px;
-	margin-top: 15px;
-	margin-right: 50px;
+	margin-top: 15px;   
 }
 
 .search_txt{
@@ -54,8 +61,7 @@
 	position: fixed;
 	top: 0;
 	z-index: 10;
-	border-bottom: 2px solid #ccc;
-	background: #fff
+	background: #fff;
 }
 .gnb_li{
 	display: inline-block;
@@ -123,7 +129,9 @@
 	border: solid 1px #ccc;
 
 }
-
+.hr2{
+    border: 2px solid #111;
+}
 /* footer */
 .footer-wrap{
 	width: 100%;
