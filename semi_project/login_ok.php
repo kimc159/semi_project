@@ -27,6 +27,7 @@
     if( count($result) < 1){
         redirect(false, '아이디나 비밀번호가 맞지 않습니다.');
     }
+
     /* 조회결과를 기반으로 로그인 처리 -> 세션생성 */
     $member_id = $result[0]['id'];
     $member_name = $result[0]['user_name'];
@@ -37,4 +38,5 @@
 
     /* 로그인 완료 후 페이지 이동 */
     redirect('../allerman.php', $member_name.'님 안녕하세요.');
+    
 ?>

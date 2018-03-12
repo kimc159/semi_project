@@ -11,8 +11,8 @@
 		<tbody>
 			<tr>
 				<th>아이디<img src="img/ico.png" alt="필수"></th>
-				<td class="id_wrap"><input type="text" class="form-control" id="id" name="id" placeholder="(영문소문자/숫자,4~16자)">
-				<span class="id_check"></span></td>
+				<td class="id_wrap"><input type="text" class="form-control" id="id" name="id" placeholder="(영문소문자/숫자,4~16자)" style="width: 150px;">
+				<button type="button" onclick="id_check()">중복확인</button> <span class="id_check"></span></td>
 			</tr>
 			<tr>
 				<th>비밀번호<img src="img/ico.png" alt="필수"></th>
@@ -33,7 +33,7 @@
 				<td class="pc_wrap"><input type="text" name="postcode" id="postcode"
                    class="form-control"/>
             <!-- 클릭 시, Javascript 함수 호출 : openDaumPostcode() -->
-            	<input type='button' value='우편번호 찾기' class='btn btn-warning post' onclick='daumPostCode()'/></td>
+            	<input type='button' value='우편번호 찾기' class='btn btn-warning post' onclick='daumPostCode()' style="width: 110px;"/></td>
 			</tr>
 			<tr>
 				<th>주소<img src="img/ico.png" alt="필수"></th>
@@ -121,9 +121,51 @@
 	</table>
 </form>
 <!--{#footer}-->
-    <link rel="stylesheet" type="text/css" href="css/register.css">
-	<script src="js/register.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/register.css?css">
+	<script src="js/register.js?js"></script>
 <script type="text/javascript">
+function id_check(){
+    var str = $("#id").val();
+    console.log(str);
+    if(str ==""){
+        alert("아이디를 입력해주세요.");
+        return false;
+    }
+    if(hanCheck(str) && (specialCheck(str) || spaceCheck(str))){
+         $(".id_check").text('');
+         alert("아이디는 한글,특수문자, 공백이 올 수 없습니다.");
+        return false;
+    }else if(specialCheck(str) || spaceCheck(str)){
+        $(".id_check").text('');
+         alert("아이디는 특수문자나 공백이 올 수 없습니다.");
+        return false;
+    }else if(hanCheck(str)){
+        $(".id_check").text('');
+         alert("아이디는 한글이 올수 없습니다.");
+        return false;
+    }
+    $.ajax({
+        type: 'post',
+        dataType: 'json',
+        url: '{home_url}/memberIdCheck.php',
+        data: {memberId: $("#id").val()},
+
+        success: function (json) {
+            if(json.res == 'good') {
+                console.log(json.res);
+                alert("사용가능한 아이디 입니다.");
+            }else{
+                alert("이미 사용중인 아이디 입니다.");
+                $("#id").focus();
+            }
+        },
+
+        error: function(request,status,error){
+            console.log('failed');
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+    });
+}
 function daumPostCode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -164,6 +206,29 @@ function daumPostCode() {
             document.getElementById('addr2').focus();
         }
     }).open();
+}
+function hanCheck(str){
+    var check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;   //한글 체크
+    if(check.test(str)){
+        return true;
+    }else{
+        return false;
+    }
+}
+function specialCheck(str){
+    var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi; // 특수문자
+    if(special_pattern.test(str) == true){
+        return true;
+    }else{
+        return false;
+    }
+}
+function spaceCheck(str){   // 공백체크
+    if(str.search(/\s/) != -1){
+        return true;
+    }else{
+        return false;
+    }
 }
 </script>
 </body>

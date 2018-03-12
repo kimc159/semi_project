@@ -1,0 +1,15 @@
+.p_container{
+	height: 1500px !important;
+}
+.product_list{
+	height: 1200px !important;
+}
+.inner_list{
+	height: 1200px !important;
+}
+.name{
+	margin-left: -70px !important;
+}
+.desc{
+	margin-left: -40px !important;
+}

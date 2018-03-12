@@ -31,3 +31,21 @@ td{
 .search > tr > td{
 	border: 2px solid #ccc;
 }
+
+.container{
+	width: 1100px;
+	height: 500px;
+	margin: 10px auto;
+}
+.container input{
+	padding: 10px;
+}
+.input-group button{
+	margin-left: 5px;
+	background-color: #474747;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 5px;
+    font-size: 15px;
+}

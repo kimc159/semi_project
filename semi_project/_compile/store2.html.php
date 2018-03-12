@@ -1,0 +1,68 @@
+<?php /* Template_ 2.2.8 2018/01/04 15:15:36 C:\phpuser\semi_project\_template\store2.html 000002515 */ ?>
+<!DOCTYPE html>
+<html>
+<head>
+<?php $this->print_("head",$TPL_SCP,1);?>
+
+    <link rel="stylesheet" type="text/css" href="css/store.css">
+    <link rel="stylesheet" type="text/css" href="css/store2.css?cs">
+<style type="text/css">
+.find_store{
+    width: 1100px;
+    height: 100px;
+    margin: 50px auto;
+}
+</style>
+</head>
+<body>
+<?php $this->print_("topbar",$TPL_SCP,1);?>
+
+    <div class="p_container">
+        <div class="p_img">
+            <img src="img/sv01.jpg">
+        </div>
+        <div class="page_path">
+            <span class="page_home">
+                <img src="img/btn_home.jpg">
+            </span>
+            <ul class="page_nav">
+                <li class="page_nav_li"><a href="#">STORE
+                    <ul class="lnb">
+                        <li class="lnb_list"><a href="">PRODUCT</a></li>
+                        <li class="lnb_list"><a href="">COMMUNITY</a></li>
+                        <li class="lnb_list"><a href="">STORE</a></li>
+                        <li class="lnb_list"><a href="">SERVICE CENTER</a></li>
+                        <li class="lnb_list"><a href="">COMPANY</a></li>
+                    </ul>
+                </a></li>
+                <li class="page_nav_li"><a href="#">대리점 개설안내
+                    <ul class="lnb">
+                        <li class="lnb_list"><a href="">매장찾기</a></li>
+                        <li class="lnb_list"><a href="">우수매장</a></li>
+                        <li class="lnb_list"><a href="">대리점 개설안내</a></li>
+                        <li class="lnb_list"><a href="">대리점 개설문의</a></li>
+                    </ul>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_text clearfix">
+            <h1 class="fl">대리점 개설안내</h1>
+            <div class="area2 fr">
+                <ul class="clearfix">
+                    <li class="fr">> 대리점 개설안내</li>
+                    <li class="fr">&nbsp;> STORE&nbsp;</li>
+                    <li class="fr">HOME</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content_img">
+            <img src="img/store_03.jpg">
+        </div>
+    </div>
+<?php $this->print_("footer",$TPL_SCP,1);?>
+
+    <script src="js/store.js?js"></script>
+</body>
+</html>

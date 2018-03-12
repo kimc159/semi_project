@@ -1,20 +1,14 @@
-<?php /* Template_ 2.2.8 2017/12/07 17:23:29 C:\phpuser\semi_project\_template\allerman.html 000009526 */ ?>
+<?php /* Template_ 2.2.8 2018/03/10 04:42:48 C:\phpuser\semi_project\_template\allerman.html 000013960 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
 <?php $this->print_("head",$TPL_SCP,1);?>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?css">
     <!--유튜브 CSS 플러그인 참조-->
     <link rel="stylesheet" href="plugins/superslides/stylesheets/superslides.css">
     <link rel="stylesheet" href="plugins/youcover/youCover.css">
     <link rel="stylesheet" href="plugins/aos/aos.css">
-   
-<style type="text/css">
-    .slides-pagination{
-        bottom: 15px !important;
-    }
-</style>
 </head>
 <body>
 <?php $this->print_("topbar",$TPL_SCP,1);?>
@@ -68,7 +62,7 @@
                     <div><img class="best_img" src="img/best_img01.jpg" alt="best-img1"></div>
                     <div class="img_info">
                         <div>프레스티지</div>
-                        <img src="img/rightbtn.png" class="best_txt" >
+                        <img src="img/rightbtn.PNG" class="best_txt" >
                     </div>
                 </a>
             </li>
@@ -84,7 +78,7 @@
                     <div><img class="best_img" src="img/best_img02.jpg" alt="best-img1"></div>
                     <div class="img_info">
                         <div>베딩세트</div>
-                        <img src="img/rightbtn.png" class="best_txt">
+                        <img src="img/rightbtn.PNG" class="best_txt">
                     </div>
                 </a>
             </li>
@@ -100,7 +94,7 @@
                     <div><img class="best_img" src="img/best_img03.jpg" alt="best-img1"></div>
                     <div class="img_info">
                         <div>구스차렵</div>
-                        <img src="img/rightbtn.png" class="best_txt">
+                        <img src="img/rightbtn.PNG" class="best_txt">
                     </div>
                 </a>
             </li>
@@ -116,7 +110,7 @@
                     <div><img class="best_img" src="img/best_img04.jpg" alt="best-img1"></div>
                     <div class="img_info">
                         <div>웨딩</div>
-                        <img src="img/rightbtn.png" class="best_txt">
+                        <img src="img/rightbtn.PNG" class="best_txt">
                     </div>
                 </a>
             </li>
@@ -132,7 +126,7 @@
                     <div><img class="best_img" src="img/best_img05.jpg" alt="best-img1"></div>
                     <div class="img_info">
                         <div>계절상품</div>
-                        <img src="img/rightbtn.png" class="best_txt">
+                        <img src="img/rightbtn.PNG" class="best_txt">
                     </div>
                 </a>
             </li>
@@ -148,12 +142,113 @@
                     <div><img class="best_img" src="img/best_img06.jpg" alt="best-img1"></div>
                     <div class="img_info">
                         <div>알레르망 베이비</div>
-                        <img src="img/rightbtn.png" class="best_txt">
+                        <img src="img/rightbtn.PNG" class="best_txt">
                     </div>
                 </a>
             </li>
         </ul>
     </div>
+</div>
+
+<div class="fresh_item">
+    <div>
+        <p class="fresh_title">신상품</p>       
+    </div>
+    <div class="inner_wrap">
+        <div class="inner3 pull-left test" style="left:5px;">
+            <ul>
+                <li class="fresh-list" data-aos="fade-up" data-aos-offset="100" 
+                         data-aos-easing="ease-in-sine" data-aos-duration="600">
+                    <a href="#" class="fresh-list-a">
+                        <div><img class="fresh_img" src="img/best_img01.jpg" alt="fresh-img1"></div>
+                        <div class="img_info">
+                            <div>신상품0</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    <div class="inner3 pull-left" style="left: 250px;">
+        <ul>
+            <li class="fresh-list" data-aos="fade-up" data-aos-offset="100" 
+                     data-aos-easing="ease-in-sine" data-aos-duration="600">
+                <a href="#" class="fresh-list-a">
+                    <div><img class="fresh_img" src="img/best_img01.jpg" alt="fresh-img1"></div>
+                    <div class="img_info">
+                        <div>신상품1</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="inner3 pull-left" style="left: 495px;">
+        <ul>
+            <li class="fresh-list" data-aos="fade-up" data-aos-offset="100" 
+                     data-aos-easing="ease-in-sine" data-aos-duration="600">
+                <a href="#" class="fresh-list-a">
+                    <div><img class="fresh_img" src="img/best_img03.jpg" alt="fresh-img1"></div>
+                    <div class="img_info">
+                        <div>신상품2</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="inner3 pull-left" style="left: 745px;">
+        <ul>
+            <li class="fresh-list" data-aos="fade-up" data-aos-offset="100" 
+                     data-aos-easing="ease-in-sine" data-aos-duration="600">
+                <a href="#" class="fresh-list-a">
+                    <div><img class="fresh_img" src="img/best_img03.jpg" alt="fresh-img1"></div>
+                    <div class="img_info">
+                        <div>신상품3</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="inner3 pull-left" style="left: 995px;">
+        <ul>
+            <li class="fresh-list" data-aos="fade-up" data-aos-offset="100" 
+                     data-aos-easing="ease-in-sine" data-aos-duration="600">
+             <a href="#" class="fresh-list-a">
+                    <div><img class="fresh_img" src="img/best_img04.jpg" alt="fresh-img1"></div>
+                    <div class="img_info">
+                        <div>신상품4</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="inner3 pull-left" style="left: 1245px;">
+        <ul>
+            <li class="fresh-list" data-aos="fade-up" data-aos-offset="100" 
+                     data-aos-easing="ease-in-sine" data-aos-duration="600">
+                <a href="#" class="fresh-list-a">
+                    <div><img class="fresh_img" src="img/best_img05.jpg" alt="fresh-img1"></div>
+                    <div class="img_info">
+                        <div>신상품5</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="inner3 pull-left" style="left: 1495px;">
+        <ul>
+            <li class="fresh-list" data-aos="fade-up" data-aos-offset="100" 
+                     data-aos-easing="ease-in-sine" data-aos-duration="600">
+                <a href="#" class="fresh-list-a">
+                    <div><img class="fresh_img" src="img/best_img06.jpg" alt="fresh-img1"></div>
+                    <div class="img_info">
+                        <div>신상품6</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <a class="next_s" style="position: absolute;right: 0;top: 50%;margin-top: -15px;"><img class="right_btn_s" src="img/right_arrow.png" alt="오른화살표" width="30px" height="30px"></a>
+    <a class="prev_s" style="position: absolute;left: -4px; top: 50%;margin-top: -15px;"><img class="left_btn_s" src="img/left_arrow.png" alt="왼쪽화살표" width="30px" height="30px"></a>
 </div>
 <div class="f1 clearfix" data-aos="fade-up" data-aos-offset="100" 
                      data-aos-easing="ease-in-sine" data-aos-duration="600">
@@ -197,12 +292,13 @@
      <!-- 플러그인 JS 참조 (유튜브 동영상)-->
     <script src='plugins/youcover/youCover.js'></script>
     <script src='plugins/aos/aos.js'></script>
-    <script src='js/script.js'></script>
+    <script src='js/script.js?a'></script>
 <?php if($TPL_VAR["is_popup"]=='N'){?>
 <script>
     $(function(){
         var popup = window.open("popup.php", "popup", "width=450,height=450");
-    }); 
+    });
+
 </script>
 <?php }?>
 </body>

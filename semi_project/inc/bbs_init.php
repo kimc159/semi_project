@@ -24,11 +24,19 @@
 		case 'qna':
 		$bbs_name = '문의하기';
 		break;
+		case 'event':
+		$bbs_name = '이벤트';
+		break;
+		case 'info':
+		$bbs_name = '생활정보';
+		break;
+		case 'great':
+		$bbs_name = '우수매장';
+		break;
 	}
 
 	/* 생성된 변수값을 template에 전달 */
 	$bbs_config = array('name' => $bbs_name, 'type' => $bbs_type);
-	$tpl->assign('bbs_config', $bbs_config);
 	
-
+	$tpl->assign('bbs_config', $bbs_config)
 ?>

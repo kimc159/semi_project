@@ -1,13 +1,11 @@
-<?php /* Template_ 2.2.8 2017/12/07 17:07:12 C:\phpuser\semi_project\_template\store.html 000003869 */ ?>
+<?php /* Template_ 2.2.8 2018/01/02 06:51:36 C:\phpuser\semi_project\_template\store.html 000003898 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
 <?php $this->print_("head",$TPL_SCP,1);?>
 
-    <link rel="stylesheet" type="text/css" href="css/store.css">
+    <link rel="stylesheet" type="text/css" href="css/store.css?cs">
 <style type="text/css">
-
-
 .find_store{
     width: 1100px;
     height: 100px;
@@ -70,7 +68,7 @@
     	<p class="store_title1">지역별검색</p>
     	<p class="store_title2">원하는 지역을 클릭후 지역별 매장정보를 확인해 주세요.</p>
     	<div class="pt clearfix">
-    		<p class="pull-left"><a href="#">전체</a></p>
+    		<p class="pull-left"><a href="#" style="margin-top: -60px;">전체</a></p>
     		<p class="pull-left"><a href="#">서울</a></p>
     		<p class="pull-left"><a href="#">인천</a></p>
     		<p class="pull-left"><a href="#">경기</a></p>
@@ -92,6 +90,6 @@
     </div>
 <?php $this->print_("footer",$TPL_SCP,1);?>
 
-    <script src="js/store.js"></script>
+    <script src="js/store.js?js"></script>
 </body>
 </html>

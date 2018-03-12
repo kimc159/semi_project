@@ -1,0 +1,18 @@
+.content{
+	width: 1100px;
+	height: 2500px;
+	margin: 50px auto;
+}
+.content .content_text{
+	width: 1100px;
+	height: 70px;
+	border-bottom: 1px solid #111;
+}
+.content .content_text >h1{
+	font-size: 30px;
+	color: #474747;
+}
+.area2{
+	width: 200px;
+	margin-top: 40px;
+}

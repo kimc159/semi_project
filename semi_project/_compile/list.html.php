@@ -1,4 +1,4 @@
-<?php /* Template_ 2.2.8 2017/12/07 17:06:53 C:\phpuser\semi_project\_template\list.html 000007127 */ 
+<?php /* Template_ 2.2.8 2018/01/24 16:49:04 C:\phpuser\semi_project\_template\list.html 000007354 */ 
 $TPL_document_list_1=empty($TPL_VAR["document_list"])||!is_array($TPL_VAR["document_list"])?0:count($TPL_VAR["document_list"]);?>
 <!doctype html>
 <html>
@@ -46,9 +46,10 @@ $TPL_document_list_1=empty($TPL_VAR["document_list"])||!is_array($TPL_VAR["docum
                         <li class="lnb_list"><a href="">COMPANY</a></li>
                     </ul>
                 </a></li>
-                <li class="page_nav_li"><a href="#">공지사항
+                <li class="page_nav_li"><a href="#"><?php echo $TPL_VAR["bbs_config"]["name"]?>
+
                     <ul class="lnb">
-                        <li class="lnb_list"><a href="">공지사항</a></li>
+                        <li class="lnb_list"><a href=""><?php echo $TPL_VAR["bbs_config"]["name"]?></a></li>
                         <li class="lnb_list"><a href="">뉴스</a></li>
                         <li class="lnb_list"><a href="">이벤트</a></li>
                         <li class="lnb_list"><a href="">생활정보</a></li>
@@ -91,7 +92,7 @@ $TPL_document_list_1=empty($TPL_VAR["document_list"])||!is_array($TPL_VAR["docum
             <form method="get" action="list.php" style="width: 400px;">
                 <div class="input_wrap" style="margin-top: 10px;">
                     <input type="hidden" name="bbs_type" value="<?php echo $TPL_VAR["bbs_config"]["type"]?>">
-                    <input type="text" name="keyword" value="<?php echo $TPL_VAR["keyword"]?>" placeholder="제목, 내용 검색" style="padding: 3px;">
+                    <input type="text" name="keyword" class="keyword" value="<?php echo $TPL_VAR["keyword"]?>" placeholder="제목, 내용 검색" style="padding: 3px;">
                     <span class="search_btn">
                         <button type="submit" style="padding: 2.5px;"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </span>
@@ -136,11 +137,14 @@ $TPL_document_list_1=empty($TPL_VAR["document_list"])||!is_array($TPL_VAR["docum
 <?php }?>
             </ul>
         </nav>
+
+<?php if(($TPL_VAR["member_info"]["user_id"]!=='admin'&&$TPL_VAR["bbs_type"]==='qna')||$TPL_VAR["member_info"]["user_id"]==='admin'){?>
     	<div class="write">
     		<a href="write.php?bbs_type=<?php echo $TPL_VAR["bbs_config"]["type"]?>" class="write_now" style>
     		글쓰기
     		</a>
     	</div>
+<?php }?>
     </div>
 <?php $this->print_("footer",$TPL_SCP,1);?>
 
@@ -170,6 +174,7 @@ $TPL_document_list_1=empty($TPL_VAR["document_list"])||!is_array($TPL_VAR["docum
             }
         }
     });
+
     });
 </script>
 </body>

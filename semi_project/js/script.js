@@ -1,6 +1,18 @@
 $(function() {
     
         AOS.init();
+        setInterval(function(){
+            var inner = $('.inner3');
+            if(parseInt($('.inner3:last-child').css('left'))<=parseInt(900)){
+                if(!inner.is(':animated')){
+                    inner.css('left','+=750px');
+                }
+            }else{
+                if(!inner.is(':animated')){
+                    inner.css('left','-=250px');
+                }
+            }
+        }, 2000);
         /** `#slides`요소에 대해 플러그인 적용 */
         $('#slides').superslides({
             inherit_width_from: '#slide-container',   // 슬라이드의 넓이를 구성할 부모 요소
@@ -54,12 +66,21 @@ $(function() {
             if($('.m_gnb').hasClass('m_gnb2')== false){
                 if($(document).scrollTop() > 147){
                     $('.m_gnb').addClass('m_gnb2');
+                    $('.sub_ul').css('top','70px');
                 }
             }else{
                 if($(document).scrollTop() < 147){
                     $('.m_gnb').removeClass('m_gnb2');
+                    $('.sub_ul').css('top','73px');
                     
                 }
             }
         });
+    $('.sub_li').hover(function(){
+        $(this).css('backgroundColor','#4974bc');
+        $(this).find('a').css('color','#fff');
+    },function(){
+        $(this).css('backgroundColor','#fff');
+        $(this).find('a').css('color','#000');
+    });
 });

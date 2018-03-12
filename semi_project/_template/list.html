@@ -42,9 +42,9 @@
                         <li class="lnb_list"><a href="">COMPANY</a></li>
                     </ul>
                 </a></li>
-                <li class="page_nav_li"><a href="#">공지사항
+                <li class="page_nav_li"><a href="#">{bbs_config.name}
                     <ul class="lnb">
-                        <li class="lnb_list"><a href="">공지사항</a></li>
+                        <li class="lnb_list"><a href="">{bbs_config.name}</a></li>
                         <li class="lnb_list"><a href="">뉴스</a></li>
                         <li class="lnb_list"><a href="">이벤트</a></li>
                         <li class="lnb_list"><a href="">생활정보</a></li>
@@ -86,7 +86,7 @@
             <form method="get" action="list.php" style="width: 400px;">
                 <div class="input_wrap" style="margin-top: 10px;">
                     <input type="hidden" name="bbs_type" value="{bbs_config.type}">
-                    <input type="text" name="keyword" value="{keyword}" placeholder="제목, 내용 검색" style="padding: 3px;">
+                    <input type="text" name="keyword" class="keyword" value="{keyword}" placeholder="제목, 내용 검색" style="padding: 3px;">
                     <span class="search_btn">
                         <button type="submit" style="padding: 2.5px;"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </span>
@@ -131,11 +131,14 @@
                 <!--{/}-->
             </ul>
         </nav>
+
+        <!--{? (member_info.user_id !== 'admin' && bbs_type === 'qna') || member_info.user_id === 'admin'}-->
     	<div class="write">
     		<a href="write.php?bbs_type={bbs_config.type}" class="write_now" style>
     		글쓰기
     		</a>
     	</div>
+        <!--{/}-->
     </div>
     <!--{#footer}-->
 <script>
@@ -164,6 +167,7 @@
             }
         }
     });
+
     });
 </script>
 </body>

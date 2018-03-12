@@ -1,0 +1,69 @@
+.p_container{
+	height: 1200px !important;
+}
+.content{
+	width: 1100px;
+	height: 1200px;
+	margin: 50px auto;
+}
+.content .content_text{
+	width: 1100px;
+	height: 50px;
+	border-bottom: 1px solid #111;
+}
+.content .content_text >h1{
+	font-size: 30px;
+	color: #474747;
+}
+.area2{
+	width: 200px;
+	margin-top: 20px;
+}
+.p_container .content .frm3{
+	height: 700px;
+	margin-top: 50px;
+}
+.frm3 tr, .frm3 td, .frm3 th{
+	padding: 15px;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+.frm3 tr:nth-child(1) > th, .frm3 tr:nth-child(1) > td{
+	border-top: 0;
+}
+.frm3 tr:nth-child(9) > th:nth-child(1), .frm3 tr:nth-child(9) > th:nth-child(2){
+	border-bottom: 1px solid #ccc;
+}
+.frm3 tr:nth-child(9) > th:nth-child(2){
+	border-right: 1px solid #ccc;
+}
+.frm3 td{
+	border-right: 1px solid #ccc;
+}
+.frm3 input.form-control{
+	width: 300px;
+	padding: 5px;
+}
+.frm3 textarea{
+	width: 700px;
+	height: 100px;
+}
+.frm3 button{
+	width: 100px;
+    height: 50px;
+    background-color: #474747;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 5px;
+    font-size: 20px;
+
+}
+.frm3 button:hover{
+	color: #474747;
+	background-color: #fff;
+	cursor: pointer;
+}
+.frm3 input.btn.btn-warning.post{
+	padding: 5px;
+}

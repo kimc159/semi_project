@@ -12,7 +12,7 @@ function db_open()
 
     /*	데이터베이스에 접속하기 위한 정보 정의하기 */
     $db_hostname = 'localhost';
-    $db_database = 'site';
+    $db_database = 'kimc159';
     $db_username = 'root';
     $db_password = '';
     $db_portnumber = 3306;
@@ -53,17 +53,15 @@ function db_close()
     }
 }
 
-/**
- * SQL구문을 실행한 후 결과를 리턴한다.
- *
- * @param   $sql - SQL구문의 템플릿. 변수로 치환할 곳은 %s, %d등의 이스케이프 문자를 사용한다.
- * @param   $params - $sql변수 내의 이스케이프 문자를 치환하기 위한 배열.
- *
- * @return 1) SQL구문에 에러가 있는 경우 FALSE가 리턴된다.
- *            2) SELECT문을 실행한 경우 -> 조회결과가 배열로 변환되어 리턴된다.
- *            3) INSERT문을 실행한 경우 -> 자동증가 일련번호값이 리턴된다.
- *            4) UPDATE,DELETE 문을 실행한 경우 -> 영향을 받은 행의 수가 리턴된다.
- */
+/*
+$sql - SQL구문의 템플릿. 변수로 치환할 곳은 %s, %d등의 이스케이프 문자를 사용한다.
+$params - $sql변수 내의 이스케이프 문자를 치환하기 위한 배열.
+
+1)SQL구문에 에러가 있는 경우 FALSE가 리턴된다.
+2) SELECT문을 실행한 경우 -> 조회결과가 배열로 변환되어 리턴된다.
+3) INSERT문을 실행한 경우 -> 자동증가 일련번호값이 리턴된다.
+4) UPDATE,DELETE 문을 실행한 경우 -> 영향을 받은 행의 수가 리턴된다.
+*/
 function db_query($sql, $params)
 {
     global $_DB;
@@ -78,22 +76,6 @@ function db_query($sql, $params)
 
     // 쿼리 실행
     $result = @mysqli_query($_DB, $sql);
-
-    // 에러 체크
-    if (mysqli_errno($_DB)) {
-        printf("<div style='padding: 15px; margin: 10px;
-                        border: 1px solid #dca7a7; border-radius: 4px;
-                        color: #a94442; background-color: #f2dede;'>
-                    <strong>[SQL Error: %d]</strong> %s
-                    <blockquote style='padding: 0 0 0 5px; margin: 10px 0 0 5px;
-                        border-left: 3px solid #dca7a7'>
-                        <i><small>%s</small></i></blockquote></div>",
-            mysqli_errno($_DB), mysqli_error($_DB), $sql);
-
-        exit(); // 에러가 발생했으므로 처리 중단 --> 개발중에만 사용하고 상용화시에는 삭제해야 함
-        
-        return false;
-    }
 
     // SQL 구문 종류 분석
     $query_type = substr(strtolower(trim($sql)), 0, 6);
@@ -122,21 +104,25 @@ function db_query($sql, $params)
     return $value;
 }
 
-
-function db_begin_trans()
-{
-    global $_DB;
-    mysqli_begin_transaction($_DB);
-}
-
-function db_commit()
-{
-    global $_DB;
-    mysqli_commit($_DB);
-}
-
-function db_rollback()
-{
-    global $_DB;
-    mysqli_rollback($_DB);
+/*카페24 실행을 위한 코드*/
+if (!function_exists('mysqli_fetch_all')) {
+    function mysqli_fetch_all($result, $mode = 0) {
+        $all = FALSE;
+        if ($result) {
+            $all = array();
+            $i = 0;
+            while($row = mysqli_fetch_array($result)) {
+                $all[$i] = array();
+                foreach($row as $key => $value) {
+                    if (!is_numeric($key)) {
+                        $all[$i][$key] = $value;
+                    }
+                }
+ 
+                $i++;
+            }
+        }
+ 
+        return $all;
+    }
 }

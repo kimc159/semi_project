@@ -12,14 +12,14 @@
 	if($keyword !== false){
 		$where .= "AND (subject LIKE '%%%s%%' OR content LIKE '%%%s%%')";
 		//subject와 content 두개 검사해야하니 input 배열에 두번 넣는다.
-		$input[] = $keyword; //배열에 데이터 추가
+		$input[] = $keyword; // 배열에 데이터 추가
 		$input[] = $keyword; // 배열에데이터 추가
 	}
 	/*페이지 구현*/
 	$now_page = get('page',1);//현재 페이지수
 	$list_count = 10;	// 한 페이지에 보여질 목록수
 	$group_count = 5;	// 한 번에 표시될 페이지 번호 그룹 수
-	if($bbs_type == 'event'){
+	if($bbs_type == 'event' || $bbs_type == 'great'){
 		$list_count = 6;	// 한 페이지에 보여질 목록수
 		$group_count = 3;	// 한 번에 표시될 페이지 번호 그룹 수
 	}
@@ -46,14 +46,14 @@
 	}
 
 	/*갤러리 형태의 게시판*/
-	if($bbs_type == 'event'){
+	if($bbs_type == 'event' || $bbs_type == 'great'){
 		for($i=0; $i<count($document_list); $i++){
 			$document_id = $document_list[$i]['id'];
 
 
 			/*$i 번째 게시물에 해당되는 이미지 형식의 첫 번째 첨부파일을 가져온다.*/
 			/*파일중에서 image로 저장되는것만 불러옴*/
-			$sql = "SELECT file_path FROM bbs_file WHERE bbs_document_id=%d AND LEFT(file_type,5)='image' ORDER BY id ASC LIMIT 0,1";
+			$sql = "SELECT file_path FROM bbs_file WHERE bbs_document_id=%d AND LEFT(file_type, 5)='image' ORDER BY id ASC LIMIT 0,1";
 			$file = db_query($sql, array($document_id));
 
 			if($file !== FALSE && count($file) > 0){
@@ -77,13 +77,13 @@
 		}
 	}
 
-
 	$tpl->assign('document_list', $document_list);
+	$tpl->assign('total_count', $total_count);
 	$tpl->assign('keyword', $keyword);
 	$tpl->assign('page_info', $page_info);
-
+	$tpl->assign('bbs_type', $bbs_type);
 	$skin = '';
-	if($bbs_type == 'event'){
+	if($bbs_type == 'event' || $bbs_type == 'great'){
 		$skin = 'event.html';
 	}else{
 		$skin = 'list.html';

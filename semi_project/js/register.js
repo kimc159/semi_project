@@ -1,26 +1,11 @@
 $(function(){
-
-$("#id").keyup(function(){
-	var str = $(this).val();
-    console.log(str);
-	if(hanCheck(str) && (specialCheck(str) || spaceCheck(str))){
-         $(".id_check").text('');
-         $(".id_check").text('아이디는 한글,특수문자, 공백이 올 수 없습니다.').css({'color':'red','fontSize' : '11px'});
-	}else if(specialCheck(str) || spaceCheck(str)){
-        $(".id_check").text('');
-        $(".id_check").text('아이디는 특수문자나 공백이 올 수 없습니다.').css({'color':'red','fontSize' : '11px'});
-    }else if(hanCheck(str)){
-        $(".id_check").text('');
-        $(".id_check").text('아이디는 한글이 올수 없습니다.').css({'color':'red','fontSize' : '11px'});     
-    }else{
-        $(".id_check").text('사용 가능한 아이디입니다.').css({'color':'blue','fontSize':'11px'});
-    }
-});
-$("#id").blur(function(){
-    var str = $(this).val();
-    if(str ==""){
-        $(".id_check").text('아이디를 입력해주세요.').css({'color':'red','fontSize':'11px'});
-    }
+$('.sub_li').hover(function(){
+    console.log("sub_li hover");
+    $(this).css('backgroundColor','#4974bc');
+    $(this).find('a').css('color','#fff');
+},function(){
+    $(this).css('backgroundColor','#fff');
+    $(this).find('a').css('color','#000');
 });
 $("#pw").keyup(function(){
     var str = $(this).val();
@@ -43,11 +28,19 @@ $("#pw_conf").keyup(function(){
 });
 
 $("#email").keyup(function(){
-    var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+    var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     var email = $(this).val();
-    if(regex.test(email) === false) {
-        $(".email_check").text('잘못된 이메일 형식입니다.').css({'color':'red','fontSize':'11px'});
-    return false;
+    if(!regex.test(email)) {
+        $(".email_check").text('잘못된 이메일 형식입니다.').css({'color':'red','fontSize':'11px'});   
+    } else {
+        $(".email_check").text('사용 가능한 이메일 입니다.').css({'color':'blue','fontSize':'11px'});
+    }
+});
+$("#email").blur(function(){
+    var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    var email = $(this).val();
+    if(!regex.test(email)) {
+        $(".email_check").text('잘못된 이메일 형식입니다.').css({'color':'red','fontSize':'11px'});   
     } else {
         $(".email_check").text('사용 가능한 이메일 입니다.').css({'color':'blue','fontSize':'11px'});
     }

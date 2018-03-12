@@ -44,4 +44,12 @@ $(function() {
         }
     });
     /*헤더 스크롤 끝*/
+    $('.sub_li').hover(function(){
+        console.log("sub_li hover");
+        $(this).css('backgroundColor','#4974bc');
+        $(this).find('a').css('color','#fff');
+    },function(){
+        $(this).css('backgroundColor','#fff');
+        $(this).find('a').css('color','#000');
+    });
 });

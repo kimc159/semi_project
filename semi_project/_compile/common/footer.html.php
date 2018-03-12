@@ -1,4 +1,4 @@
-<?php /* Template_ 2.2.8 2017/12/04 11:43:24 C:\phpuser\semi_project\_template\common\footer.html 000003424 */ ?>
+<?php /* Template_ 2.2.8 2018/01/02 02:37:56 C:\phpuser\semi_project\_template\common\footer.html 000003424 */ ?>
 <div class="footer-wrap">
     <div class="footer-gnb clearfix">
         <div class="pull-left footer_logo">

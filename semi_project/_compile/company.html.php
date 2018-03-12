@@ -1,4 +1,4 @@
-<?php /* Template_ 2.2.8 2017/12/07 17:06:48 C:\phpuser\semi_project\_template\company.html 000002428 */ ?>
+<?php /* Template_ 2.2.8 2017/12/27 06:33:58 C:\phpuser\semi_project\_template\company.html 000002562 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +47,9 @@
     		<p>-피부를 생각하는 침구과학</p>
     		<p>우리가 원하는곳, 우리가 가고싶은 곳 세상에서 가장 쾌적한 곳은 알레르망입니다.</p>
     		<div class="inner_tab clearfix">
-    			<p class="pull-left"><a href="#">회사소개</a></p>
-    			<p class="pull-left"><a href="#">연혁</a></p>
-    			<p class="pull-left"><a href="#">BI소개</a></p>
+    			<p class="pull-left"><a href="<?php echo $TPL_VAR["home_url"]?>/company.php">회사소개</a></p>
+    			<p class="pull-left"><a href="<?php echo $TPL_VAR["home_url"]?>/company2.php">연혁</a></p>
+    			<p class="pull-left"><a href="<?php echo $TPL_VAR["home_url"]?>/company3.php">BI소개</a></p>
     		</div>
     		<p>
     			<img src="img/company_01.jpg">

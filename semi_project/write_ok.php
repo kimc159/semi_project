@@ -57,7 +57,6 @@
             db_query($sql, $input);
         }
     }
-
     $url = 'read.php?bbs_type=%s&document_id=%d';
     $url = sprintf($url, $bbs_type, $document_id);
     redirect($url, false);

@@ -26,6 +26,8 @@
     if($user_pw != $user_pw_conf){
         redirect(false, '비밀번호 확인이 잘못되었습니다.');
     }
+
+
     /*아이디 중복 검사*/
     $sql = "SELECT count(user_id) as `cnt` FROM user WHERE user_id='%s'";
     $input = array($user_id);
@@ -40,6 +42,8 @@
         redirect(false, '이미 사용중인 아이디입니다.');
     }
 
+
+
     /*이메일 중복 검사*/
     $sql = "SELECT count(email) as `cnt` FROM user WHERE email='%s'";
     $input = array($email);
@@ -52,8 +56,12 @@
     if($result[0]['cnt'] > 0){
         redirect(false, '이미 사용중인 이메일 입니다.');
     }
+
+    
     /* 가입을 위한 INSERT 처리 */
-    $sql = "INSERT INTO user(user_id, user_pw, user_pw_conf, user_name, postcode, addr1, addr2, email, tel4, tel5, tel6, email_ck, reg_date, edit_date) VALUES('%s', password('%s'), password('%s'), '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', now(), now())";
+    $sql = "INSERT INTO user(user_id, user_pw, user_pw_conf, user_name, postcode, addr1, 
+    addr2, email, tel4, tel5, tel6, email_ck, reg_date, edit_date) VALUES('%s', password('%s'), password('%s'), 
+    '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', now(), now())";
     
     // 사용자 입력값을 배열로 구성
     $input = array($user_id, $user_pw , $user_pw_conf, $user_name, $postcode, $addr1 ,$addr2 , $email, $tel4, $tel5, $tel6, $email_ck);

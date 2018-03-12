@@ -3,7 +3,7 @@
 	include_once 'inc/init.php';
 
 	$email = post('email', false);
-
+	die();
 	if(!$email){
 		redirect(false, '이메일을 입력하세요.');
 	}
@@ -50,7 +50,7 @@
 	if($result < 1){
 		redirect(false, '일치하는 이메일이 없습니다.');
 	}
-	$mail_ok = send_mail('kimc159@naver.com','관리자', false, '회원님의 비밀번호가 변경되엇습니다.', sprintf("<h1>회원님의 임시 비밀번호는 <font color='red'>[%s]</font>입니다.</h1>", $new_password));
+	// $mail_ok = send_mail('kimc159@naver.com','관리자', false, '회원님의 비밀번호가 변경되엇습니다.', sprintf("<h1>회원님의 임시 비밀번호는 <font color='red'>[%s]</font>입니다.</h1>", $new_password));
 
 	if($mail_ok === false){
 		//redirect(false, '이메일 발송에 실패했습니다.');

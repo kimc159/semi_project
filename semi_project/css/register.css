@@ -27,8 +27,16 @@ tr:nth-child(14) > th:nth-child(2){
 tr:nth-child(15) > th:nth-child(1){
 	border-bottom: 1px solid #ccc;
 }
-.post{
-	padding: 5px;
+td button, .post, .btn_register{
+    display: inline-block;
+    width: 80px;
+    height: 35px;
+    background-color: #474747;
+    color: #fff;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 5px;
+    font-size: 15px;
 }
 .frm2 > table > caption{
 	font-size: 20px;
@@ -119,9 +127,6 @@ tr:nth-child(15) > th:nth-child(1){
 	width: 30px;
 }
 .btn_register{
-	padding: 10px;
-	width: 70px;
-	height: 40px;
 	line-height: 15px;
 }
 /*회원가입 폼 끝*/

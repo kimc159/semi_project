@@ -1,11 +1,10 @@
-<?php /* Template_ 2.2.8 2017/12/07 10:19:36 C:\phpuser\semi_project\_template\product_list.html 000011638 */ ?>
+<?php /* Template_ 2.2.8 2018/03/10 04:48:52 C:\phpuser\semi_project\_template\product_list.html 000011641 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="css/product_list.css?css">
 <?php $this->print_("head",$TPL_SCP,1);?>
 
-    <link rel="stylesheet" href="css/product_list.css">
-  
 </head>
 <body>
 <?php $this->print_("topbar",$TPL_SCP,1);?>
@@ -253,7 +252,7 @@
 </div>
 <?php $this->print_("footer",$TPL_SCP,1);?>
 
-<script src='js/product_list.js'></script>
+<script src='js/product_list.js?js'></script>
 
 </body>
 </html>

@@ -15,6 +15,37 @@
 	width: 30%;
 	height: 330px;
 	margin-left: 30px;
+    position: relative;
+}
+.thum_black{
+    width: 330px;
+    height: 330px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0;
+    transition: all 0.6s;
+}
+.thum_black:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+.thum_text{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -25px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 25px;
+    color: #fff;
+    border: 1px solid #fff;
+    z-index: 20;
+    transition: all 0.6s;
 }
 .img-responsive{
 	width: 100%;

@@ -56,6 +56,7 @@
 	            }
 			}
 		}
+	}
 		// 2) 참조키 제약조건에 의해서 첨부된 파일의 목록을 먼저 삭제해야 한다.
 		$sql = "DELETE FROM bbs_file WHERE bbs_document_id=%d";
 		$input = array($document_id);
@@ -67,7 +68,6 @@
 		db_query($sql, $input);
 
 		redirect('list.php?bbs_type='.$bbs_type, '삭제되었습니다.');
-	}
 
 
 ?>

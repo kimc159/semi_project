@@ -6,6 +6,7 @@
  * @param $key - 파라미터 이름
  * @param $def - 값이 없을 경우 사용될 기본값.
  */
+
 function get($key, $def)
 {
     // 일단 기본값으로 변수 생성
@@ -39,6 +40,7 @@ function get($key, $def)
  * @param $url - 이동할 페이지 경로. FALSE로 지정한 경우 이전 페이지로 이동
  * @param $msg - 화면에 표시할 메시지. FALSE인 경우 표시 안함.
  */
+
 function redirect($url, $msg)
 {
     $html = '<!doctype html>';
@@ -99,56 +101,6 @@ function post($key, $def)
 }
 
 /**
- * 메일을 발송한다.
- *
- * @param $sender - 보내는 사람 메일 주소.
- * @param $sender_name - 보내는 사람의 이름.
- * @param $receiver - 받는 사람 메일 주소
- * @param $receiver_name - 받는 사람의 이름
- * @param $subject - 메일 제목
- * @param $content - 메일 내용
- */
-function send_mail($sender, $sender_name, $receiver, $receiver_name, $subject, $content)
-{
-    // 리턴할 결과값
-    $is_mail_send_ok = false;
-
-    // __FILE__ --> 현재 파일(helper.php)의 경로값
-    // dirname(...) --> 주어진 경로에서 상위 폴더까지의 경로를 리턴한다.
-    $inc_dir = dirname(__FILE__);
-    include_once $inc_dir . '/PHPMailer/PHPMailerAutoload.php';
-
-    /* 메일 발송 기능 초기화 */
-    $mail = new PHPMailer();
-    $mail->CharSet = 'utf-8';
-    $mail->Encoding = 'base64';
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = '';
-    $mail->Password = '';
-    $mail->SMTPSecure = 'ssl';
-    $mail->Port = 465;
-    $mail->isHTML(true);
-
-    /* 보내는 사람 정보 설정 */
-    $mail->From = $sender;
-    $mail->FromName = $sender_name;
-
-    /* 받는 사람 정보 설정 */
-    $mail->addAddress($receiver, $receiver_name);
-
-    /* 제목과 내용 */
-    $mail->Subject = $subject;
-    $mail->Body = $content;
-
-    /* 발송 및 발송 결과 처리 */
-    $is_mail_send_ok = $mail->send();
-
-    return $is_mail_send_ok;
-}
-
-/**
  * 파일 업로드를 수행하고, 업로드된 파일의 정보를 리턴한다.
  *
  * @param   $name - 원본 파일이름
@@ -168,11 +120,11 @@ function single_upload($name, $type, $size, $tmp_name)
         return false;
     }
 
-    /***** 파일이 저장될 폴더 준비하기 *****/
+    //파일이 저장될 폴더 준비하기
     // DocumentRoot 안에서의 저장폴더 경로를 구성한다.
-    $upload_dir_uri = '/files/' . date('Ymd', time());
+    $upload_dir_uri = '/files/'.date('Ymd', time());
     // DocumentRoot의 실제 경로를 얻어와서 전체 경로를 구성한다.
-    $upload_dir_path = $_SERVER['DOCUMENT_ROOT'] . $upload_dir_uri;
+    $upload_dir_path = $_SERVER['DOCUMENT_ROOT'].$upload_dir_uri;
 
     // 폴더가 없으면 만든다.
     if (!file_exists($upload_dir_path)) {
@@ -186,7 +138,7 @@ function single_upload($name, $type, $size, $tmp_name)
         }
     }
 
-    /***** 파일이 저장될 경로명 준비하기 *****/
+    //파일이 저장될 경로명 준비하기
     // 파일의 확장자는 원본 이름에서 추출한다.
     $p = strrpos($name, '.');
     $l = strlen($name);
@@ -199,11 +151,11 @@ function single_upload($name, $type, $size, $tmp_name)
     // 일단 무한루프
     for ($i = 1; $i > 0; ++$i) {
         // 파일이 복사될 이름
-        $file_name = time() . '_' . rand(1000, 9999) . $file_ext;
+        $file_name = time().'_'.rand(1000, 9999).$file_ext;
         // 파일이 복사될 웹 상의 경로
-        $upload_uri = $upload_dir_uri . '/' . $file_name;
+        $upload_uri = $upload_dir_uri.'/'.$file_name;
         // 파일이 복사될 전체 경로
-        $upload_path = $upload_dir_path . '/' . $file_name;
+        $upload_path = $upload_dir_path.'/'.$file_name;
 
         // 같은 이름의 파일이 없다면 반복 종료
         if (!file_exists($upload_path)) {
@@ -211,7 +163,7 @@ function single_upload($name, $type, $size, $tmp_name)
         }
     }
 
-    /***** 파일복사하기 *****/
+    //파일복사하기
     $is_copy = copy($tmp_name, $upload_path);
     if ($is_copy) {
         chmod($upload_path, 0777);
@@ -273,7 +225,7 @@ function do_upload($field)
 
     return $rt;
 }
-
+/*php image resize 오픈소스*/
 /**
  * easy image resize function.
  *
@@ -658,31 +610,4 @@ function array_urlencode($data)
     }
 
     return $new_data;
-}
-
-
-/*
- * 배열을 분석하여 JSON 데이터로 생성한다.
- * @param 	$rt - 결과코드 (OK OR FAIL)
- * @param 	$data - 생성할 데이터
- * @return  string
- */
-function print_rest_api($rt, $data)
-{
-    $buffer['rt'] = $rt;    // 결과 메시지
-    $buffer['pubdate'] = date('Y-m-d H:i:s', time());   // 생성 날짜
-
-    if ($data) {    // 데이터가 존재한다면 두 배열을 병합한다.
-        $buffer = array_merge($buffer, $data);
-    }
-
-    $enc_data = array_urlencode($buffer);       // 배열의 모든 값을 URLEncode 처리한다.
-    $json = urldecode(json_encode($enc_data));  // 배열을 JSON으로 변환한다.
-
-    // 브라우저에게 전달되는 컨텐츠 종류 설정 후 출력
-    header('Content-Type: application/json; charset=UTF-8');
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    echo($json);
-    exit();
 }

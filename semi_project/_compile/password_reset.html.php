@@ -1,4 +1,4 @@
-<?php /* Template_ 2.2.8 2017/12/04 18:07:46 C:\phpuser\semi_project\_template\password_reset.html 000000868 */ ?>
+<?php /* Template_ 2.2.8 2018/01/25 16:28:04 C:\phpuser\semi_project\_template\password_reset.html 000000865 */ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@
 
 	<div class="pass_re">
 		<div class="page_header">
-			<h1>비밀번호 재설정</h1>
+			<h1>비밀번호 찾기</h1>
 		</div>
 		<form name="myform" method="post" action="password_reset_ok.php" class="myform">
 			<div class="email_ck">

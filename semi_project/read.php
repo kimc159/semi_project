@@ -4,6 +4,8 @@
 
 	/* 게시물 일련번호 받기 */
 	$document_id = get('document_id', false);
+    $bbs_type = get('bbs_type', false);
+
 	if(!$document_id){
 		redirect(false, '게시물 일련번호가 없습니다.');
 	}
@@ -84,7 +86,8 @@
     $tpl->assign('prev_document', $prev_document);
     $tpl->assign('next_document', $next_document);
     $tpl->assign('file_list',    $file_list);
-
+    $tpl->assign('bbs_type', $bbs_type);
+    
 	$tpl->define('body', 'read.html');
 
 	$tpl->print_('body');

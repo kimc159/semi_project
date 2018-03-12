@@ -38,22 +38,14 @@
 	color: #171717;
 }
 .m_gnb{
-	width: 100%;
-	height: 70px;
-	text-align: center;
 	transition: all 0.4s;
 }
 .m_gnb2{
 	position: fixed;
 	top: 0;
 	z-index: 10;
-	background: #fff
-}
-.gnb_li{
-	display: inline-block;
-	padding: 20px;
-	margin-left: 50px;
-	position: relative;
+	background: #fff;
+	border-bottom: 2px solid #ccc;
 }
 .gnb_li_a{
 	display: block;
@@ -102,10 +94,9 @@
 	color: #474747;
 }
 .sub_li{
-	margin-left: 35px;
 	margin-top: 5px;
+    text-align: center;
 }
-
 .hr1{
 	position: absolute;
 	width: 100%;
@@ -133,19 +124,6 @@
 	display: inline-block;
 	vertical-align: top;
 	width: 95%;
-}
-.m_gnb{
-	width: 100%;
-	height: 70px;
-	text-align: center;
-	transition: all 0.4s;
-}
-.m_gnb2{
-	position: fixed;
-	top: 0;
-	z-index: 10;
-	border-bottom: 2px solid #ccc;
-	background: #fff
 }
 .page_nav_li{
 	display: inline-block;
